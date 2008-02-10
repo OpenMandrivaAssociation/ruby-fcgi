@@ -13,7 +13,7 @@ License:	GPL
 Group:		Development/Ruby
 BuildRoot:	%{_tmppath}/%{name}-buildroot
 Requires:	ruby 
-BuildRequires: ruby-devel
+BuildRequires: ruby-devel libfcgi-devel
 %description
 FastCGI is a language independent, scalable, open extension 
 to CGI that provides high performance without the limitations 
