@@ -1,7 +1,7 @@
 %define rname fcgi
 %define name ruby-%{rname}
 %define version 0.8.7
-%define release %mkrel 3
+%define release %mkrel 4
 
 Summary:	FastCGI support library for Ruby
 Name:		%{name}
