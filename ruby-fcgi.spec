@@ -1,19 +1,20 @@
-%define rname fcgi
-%define name ruby-%{rname}
-%define version 0.8.7
-%define release %mkrel 5
+%define upstream_name fcgi
+%define name ruby-%{upstream_name}
+%define version 0.8.8
+%define release %mkrel 1
 
 Summary:	FastCGI support library for Ruby
 Name:		%{name}
 Version:	%{version}
 Release:	%{release}
 URL:		http://rubyforge.org/projects/fcgi/
-Source0:	http://www.moonwolf.com/ruby/archive/%{name}-%{version}.tar.gz
+Source0:	http://rubyforge.org/frs/download.php/69127/%{upstream_name}-%{version}.tgz
 License:	GPL
 Group:		Development/Ruby
-BuildRoot:	%{_tmppath}/%{name}-buildroot
 Requires:	ruby 
 BuildRequires: ruby-devel libfcgi-devel
+BuildRoot:	%{_tmppath}/%{name}-%{version}
+
 %description
 FastCGI is a language independent, scalable, open extension 
 to CGI that provides high performance without the limitations 
@@ -21,19 +22,20 @@ of server specific APIs.
 
 This packages allows you to use ruby to write web applications using 
 FastCGI.
+
 %prep
-%setup -q 
+%setup -q -n %{upstream_name}-%{version}
 
 %build
-ruby install.rb config 
-ruby install.rb setup
+ruby setup.rb config
+ruby setup.rb setup
  
 %install
 rm -rf %buildroot
-ruby install.rb install --prefix=$RPM_BUILD_ROOT 
+ruby setup.rb install --prefix=%{buildroot}
 
 %check
-ruby install.rb test
+ruby setup.rb test
 
 %clean
 rm -rf %buildroot
