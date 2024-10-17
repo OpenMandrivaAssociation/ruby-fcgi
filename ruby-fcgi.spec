@@ -7,7 +7,7 @@ Summary:	FastCGI support library for Ruby
 Name:		%{name}
 Version:	%{version}
 Release:	%{release}
-URL:		http://rubyforge.org/projects/fcgi/
+URL:		https://rubyforge.org/projects/fcgi/
 Source0:	http://rubyforge.org/frs/download.php/69127/%{upstream_name}-%{version}.tgz
 License:	GPL
 Group:		Development/Ruby
